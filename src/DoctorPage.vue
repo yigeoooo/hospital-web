@@ -2,11 +2,8 @@
   <div>
     <div>
       <a-menu v-model="current" mode="horizontal" @click="change">
-        <a-menu-item key="RootMain"> <a-icon type="mail" />首页</a-menu-item>
-        <a-menu-item key="DoctorInfo"> <a-icon type="appstore" />医生信息</a-menu-item>
-        <a-menu-item key="PatentInfo"> <a-icon type="appstore" />患者信息</a-menu-item>
-        <a-menu-item key="MedicalInfo"> <a-icon type="appstore" />药房信息</a-menu-item>
-        <a-menu-item key="Account"> <a-icon type="appstore" />账户管理</a-menu-item>
+        <a-menu-item key="doctorMainPage"> <a-icon type="mail" />首页</a-menu-item>
+        <a-menu-item key="treatInfo"> <a-icon type="mail" />就诊</a-menu-item>
         <a-button type="link" id="btn" @click="loginOUt">
           退出登录
         </a-button>
@@ -16,22 +13,21 @@
     <div>
       <router-view></router-view>
     </div>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: "mainPage",
+  name: "DoctorPage",
   data(){
     return{
-      current: ['page']
+      current: ['doctorMainPage']
     }
   },
   methods:{
     change(e) {
       this.$router.push({
-        name:e.key,
+        name: e.key
       })
     },
     loginOUt(){
@@ -39,7 +35,7 @@ export default {
         name:'login'
       })
     },
-  },
+  }
 }
 </script>
 

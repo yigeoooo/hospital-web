@@ -22,7 +22,68 @@ const routes = [
   {
     path: '/main',
     name: 'main',
-    component: () => import('../mainPage')
+    component: () => import('../mainPage'),
+    children:[
+      {
+        path:'RootMain',
+        name:'RootMain',
+        component:()=>import('@/views/root/RootMain')
+      },
+      {
+        path:'DoctorInfo',
+        name:'DoctorInfo',
+        component:()=>import('@/views/root/DoctorInfo')
+      },
+      {
+        path:'PatentInfo',
+        name:'PatentInfo',
+        component:()=>import('@/views/root/PatentInfo')
+      },
+      {
+        path:'MedicalInfo',
+        name:'MedicalInfo',
+        component:()=>import('@/views/root/MedicalInfo')
+      },
+      {
+        path:'Account',
+        name:'Account',
+        component:()=>import('@/views/root/Account')
+      }
+    ]
+  },
+  {
+    path: '/doctorMain',
+    name: 'doctorMain',
+    component: () => import('../DoctorPage'),
+    children: [
+      {
+        path: 'doctorMainPage',
+        name: 'doctorMainPage',
+        component: () => import('../views/doctor/DoctorMain'),
+      },
+      {
+        path: 'treatInfo',
+        name: 'treatInfo',
+        component: () => import('../views/doctor/TreatInfo'),
+      }
+    ],
+  },
+  {
+    path: '/patientMain',
+    name: 'patientMain',
+    component: () => import('../PatientPage'),
+    children: [
+      {
+        path: 'patientMainPage',
+        name: 'patientMainPage',
+        component: () => import('../views/patient/PatientMain'),
+      },
+      {
+        path: 'RegistrationInfo',
+        name: 'RegistrationInfo',
+        component: () => import('../views/patient/RegistrationInfo'),
+      }
+    ],
   }
 ]
 

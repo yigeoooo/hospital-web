@@ -1,25 +1,38 @@
 <template>
   <div>
     <div id="login">
-      <br>
-      <h1>中医信息管理系统</h1>
-      <br><br>
-      <div style="width: 450px">
-          <el-form ref="form" :model="form" label-width="200px">
-            <el-form-item label="用户名">
-              <el-input v-model="form.userId"></el-input>
-            </el-form-item>
-            <br>
-            <el-form-item label="密码">
-              <el-input v-model="form.password"></el-input>
-            </el-form-item>
-            <br>
-          </el-form>
+      <div id="form">
+        <h1 style="margin-right: 30px">中医信息管理系统</h1>
+        <a-form-model :model="form" :label-col="labelCol" :wrapper-col="wrapperCol">
+          <a-form-model-item label="ID">
+            <a-input v-model="form.id" />
+          </a-form-model-item>
 
-          <el-button type="warning" round
-                     style="position: absolute;left: 270px;width: 100px;height: 50px"
-                     @click="login()"
-          >登录</el-button>
+          <a-form-model-item label="Password">
+            <a-input v-model="form.password" type="password"/>
+          </a-form-model-item>
+
+          <a-radio-group v-model="job" style="margin-right: 45px">
+            <a-radio-button value="1">
+              管理员
+            </a-radio-button>
+            <a-radio-button value="2">
+              医生
+            </a-radio-button>
+            <a-radio-button value="3">
+              患者
+            </a-radio-button>
+          </a-radio-group><br><br>
+
+          <a-form-model-item :wrapper-col="{ span: 14, offset: 4 }">
+            <a-button type="primary" @click="login" size="large">
+              Login
+            </a-button>
+            <a-button style="margin-left: 10px;" size="large">
+              sign up
+            </a-button>
+          </a-form-model-item>
+        </a-form-model>
       </div>
 
     </div>
@@ -29,6 +42,8 @@
 <script>
 import {
   userLogin,
+  doctorLogin,
+  patientLogin
 } from './js/login'
 export default {
   //组件名
@@ -36,8 +51,11 @@ export default {
   //data，存放数据
   data(){
     return{
+      job:'',
+      labelCol: { span: 4 },
+      wrapperCol: { span: 14 },
       form:{
-        userId:'',
+        id:'',
         password:'',
       },
     }
@@ -45,21 +63,61 @@ export default {
   //methods，专门用来放函数，执行功能
   methods:{
     login() {
-      userLogin({
-        userId:this.form.userId,
-        password:this.form.password
-      }).then(res=>{
-        if (res == true) {
-          this.$router.push({
-            name:'main',
+      if (this.job == '') {
+        this.$message.error({
+          content:'请输入或选择必选项'
+        })
+        return;
+      }
+      if (this.job === '1') {
+        userLogin({
+          id:this.form.id,
+          password:this.form.password
+        }).then(res=>{
+          if (res == true) {
+            this.$router.push({
+              name:'RootMain',
+            })
+            return;
+          }
+          this.$message.error({
+            content:'账户或密码错误'
           })
-          return;
-        }
-      this.$message({
-        message:'账户或用户名错误',
-        type:"error"
-      })
-      })
+        })
+        return;
+      }
+      if (this.job === '2' && this.job != '') {
+        doctorLogin({
+          id:this.form.id,
+          password:this.form.password
+        }).then(res=>{
+            if (res.resultCode == '200') {
+              this.$router.push({
+                name:'doctorMainPage',
+              })
+              return;
+            }
+          this.$message.error({
+            content:'账户或密码错误'
+          })
+        })
+      }
+      if (this.job === '3' && this.job != '') {
+        patientLogin({
+          id:this.form.id,
+          password:this.form.password
+        }).then(res=>{
+          if (res.resultCode == '200') {
+            this.$router.push({
+              name:'patientMainPage',
+            })
+            return;
+          }
+          this.$message.error({
+            content:'账户或密码错误'
+          })
+        })
+      }
     }
   }
 }
@@ -74,5 +132,9 @@ export default {
   top: 220px;
   left: 520px;
   border-radius: 50px;
+}
+#form{
+  margin-top: 60px;
+  margin-left: 90px;
 }
 </style>
