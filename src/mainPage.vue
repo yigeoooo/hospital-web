@@ -6,7 +6,7 @@
         <a-menu-item key="DoctorInfo"> <a-icon type="appstore" />医生信息</a-menu-item>
         <a-menu-item key="PatentInfo"> <a-icon type="appstore" />患者信息</a-menu-item>
         <a-menu-item key="MedicalInfo"> <a-icon type="appstore" />药房信息</a-menu-item>
-        <a-menu-item key="Account"> <a-icon type="appstore" />账户管理</a-menu-item>
+        <a-menu-item key="rootAccount"> <a-icon type="appstore" />账户管理</a-menu-item>
         <a-button type="link" id="btn" @click="loginOUt">
           退出登录
         </a-button>

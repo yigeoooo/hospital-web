@@ -47,7 +47,24 @@ const routes = [
       {
         path:'Account',
         name:'Account',
-        component:()=>import('@/views/root/Account')
+        component:()=>import('@/views/root/Account'),
+        children:[
+          {
+            path:'rootAccount',
+            name:'rootAccount',
+            component:()=>import('@/views/root/accountConduct/RootAccount')
+          },
+          {
+            path:'doctorAccount',
+            name:'doctorAccount',
+            component:()=>import('@/views/root/accountConduct/DoctorAccount')
+          },
+          {
+            path:'patientAccount',
+            name:'patientAccount',
+            component:()=>import('@/views/root/accountConduct/PatientAccount')
+          },
+        ]
       }
     ]
   },
