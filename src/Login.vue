@@ -78,6 +78,7 @@ export default {
             this.$router.push({
               name:'RootMain',
             })
+            localStorage.setItem("id", this.form.id);
             return;
           }
           this.$message.error({
@@ -95,6 +96,7 @@ export default {
               this.$router.push({
                 name:'doctorMainPage',
               })
+              localStorage.setItem("id", this.form.id);
               return;
             }
           this.$message.error({
@@ -111,6 +113,7 @@ export default {
             this.$router.push({
               name:'patientMainPage',
             })
+            localStorage.setItem("id", this.form.id);
             return;
           }
           this.$message.error({

@@ -13,9 +13,9 @@
         <a-switch :checked="record.status" @click="change(text, record)"/>
       </span>
       <span slot="action" slot-scope="text, record">
-      <a class="ant-dropdown-link" @click="editShow(record)"> Edit </a>
+      <a class="ant-dropdown-link" @click="editShow(record)"> 编辑 </a>
         <a-divider type="vertical" />
-      <a @click="deleteAccount(record)">Delete</a>
+      <a @click="deleteAccount(record)">删除</a>
     </span>
     </a-table>
 

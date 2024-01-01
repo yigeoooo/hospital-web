@@ -23,7 +23,7 @@
 
     </div>
 
-    <a-card style="width: 1500px;height: 700px;margin-left: 100px">
+    <a-card style="width: 1500px;margin-left: 100px">
       <router-view></router-view>
     </a-card>
     <div>
