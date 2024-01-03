@@ -44,3 +44,12 @@ export function edit(data) {
         data:data
     })
 }
+
+
+//查询root总数
+export function count() {
+    return request({
+        url:'/saas/doctor/count',
+        method:'GET',
+    })
+}

@@ -3,7 +3,7 @@ import request from "@/utils/request";
 //分页条件查询医生信息
 export function page(data) {
     return request({
-        url:'/saas/doctorInfo/page',
+        url:'/saas/patientInfo/page',
         method:'POST',
         data:data
     })
@@ -12,7 +12,7 @@ export function page(data) {
 //新增医生信息
 export function insert(data) {
     return request({
-        url:'/saas/doctorInfo/insert',
+        url:'/saas/patientInfo/insert',
         method:'POST',
         data:data
     })
@@ -21,7 +21,7 @@ export function insert(data) {
 //逻辑删除医生信息
 export function remove(id) {
     return request({
-        url:'/saas/doctorInfo/delete/' + id,
+        url:'/saas/patientInfo/delete/' + id,
         method:'GET',
     })
 }
@@ -29,7 +29,7 @@ export function remove(id) {
 //修改医生信息
 export function edit(data) {
     return request({
-        url:'/saas/doctorInfo/edit/',
+        url:'/saas/patientInfo/edit/',
         method:'POST',
         data:data
     })
@@ -38,8 +38,7 @@ export function edit(data) {
 //查询root总数
 export function count() {
     return request({
-        url:'/saas/doctorInfo/count',
+        url:'/saas/patientInfo/count',
         method:'GET',
     })
 }
-

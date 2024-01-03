@@ -31,7 +31,7 @@
           v-model="page"
           show-size-changer
           :page-size.sync="size"
-          :total="500"
+          :total="total"
           @showSizeChange="sizeChange"
           @change="onChange"
       />
@@ -125,6 +125,7 @@
 import {
   page,insert,remove,edit
 } from '@/js/doctorInfo'
+import {count} from "@/js/doctor";
 const columns = [
   {
     title: '编号',
@@ -174,6 +175,7 @@ export default {
       columns,
       page: 1,
       size: 10,
+      total:'',
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
       searchForm:{
@@ -198,6 +200,9 @@ export default {
   },
   created() {
     this.init();
+    count().then(res=>{
+      this.total = res.body
+    })
   },
   methods:{
     init() {

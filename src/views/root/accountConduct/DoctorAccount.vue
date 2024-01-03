@@ -26,7 +26,7 @@
         v-model="page"
         show-size-changer
         :page-size.sync="size"
-        :total="500"
+        :total="total"
         @showSizeChange="sizeChange"
         @change="onChange"
     />
@@ -104,7 +104,7 @@
 <script>
 import {
   page, remove,
-  status,add,edit
+  status, add, edit, count
 } from '@/js/doctor'
 const columns = [
   {
@@ -147,6 +147,7 @@ export default {
       wrapperCol: { span: 14 },
       page: 1,
       size: 10,
+      total:'',
       form:{
         id:'',
         doctorId:'',
@@ -297,6 +298,9 @@ export default {
   },
   created() {
     this.init();
+    count().then(res=>{
+      this.total = res.body
+    })
   }
 }
 </script>
