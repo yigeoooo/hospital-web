@@ -225,7 +225,7 @@ export default {
     },
     insertpatient() {
       insert(this.insertForm).then(res=>{
-        if (res.resultCode == '200' && res.body == true) {
+        if (res.code === 200 && res.body === true) {
           this.$message.success({
             content:'新增成功'
           })
@@ -249,7 +249,7 @@ export default {
     },
     editpatient(){
       edit(this.editForm).then(res=>{
-        if (res.resultCode == '200' && res.body == true) {
+        if (res.code === 200 && res.body === true) {
           this.$message.success({
             content:'修改成功'
           })
@@ -263,7 +263,7 @@ export default {
     deleteAccount(records) {
       const id = records.id;
       remove(id).then(res=>{
-        if (res.resultCode == '200' && res.body == true) {
+        if (res.code === 200 && res.body === true) {
           this.$message.success({
             content:'删除成功'
           })

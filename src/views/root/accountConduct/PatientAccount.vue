@@ -182,7 +182,7 @@ export default {
         id:records.id,
         status:records.status
       }).then(res=>{
-        if (res.resultCode == '200') {
+        if (res.code === 200) {
           this.$message.success({
             content:'修改成功'
           })
@@ -194,7 +194,7 @@ export default {
       remove({
         id:records.id
       }).then(res=>{
-        if (res.resultCode == '200') {
+        if (res.code === 200) {
           this.$message.success({
             content:'删除成功'
           })
@@ -221,7 +221,7 @@ export default {
         password:this.form.password,
         status:this.form.status
       }).then(res=>{
-        if (res.resultCode == '200' && res.body == true) {
+        if (res.code === 200 && res.body == true) {
           this.$message.success({
             content:'新增成功'
           })
@@ -282,7 +282,7 @@ export default {
         password:this.editForm.password,
         status:this.editForm.status
       }).then(res=>{
-        if (res.resultCode == '200' && res.body == true) {
+        if (res.code === 200 && res.body === true) {
           this.$message.success({
             content:'修改成功'
           })
