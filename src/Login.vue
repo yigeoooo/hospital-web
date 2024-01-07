@@ -92,7 +92,7 @@ export default {
           id:this.form.id,
           password:this.form.password
         }).then(res=>{
-            if (res.resultCode == '200') {
+            if (res.code === 200) {
               this.$router.push({
                 name:'doctorMainPage',
               })
@@ -109,7 +109,7 @@ export default {
           id:this.form.id,
           password:this.form.password
         }).then(res=>{
-          if (res.resultCode == '200') {
+          if (res.code === 200) {
             this.$router.push({
               name:'patientMainPage',
             })

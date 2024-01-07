@@ -32,7 +32,19 @@ const routes = [
       {
         path:'DoctorInfo',
         name:'DoctorInfo',
-        component:()=>import('@/views/root/DoctorInfo')
+        component:()=>import('@/views/root/DoctorInfo'),
+        children: [
+          {
+            path:'schedulingInfo',
+            name:'schedulingInfo',
+            component:()=>import('@/views/root/scheduling/schedulingInfo.vue')
+          },
+          {
+            path:'schedulingPlan',
+            name:'schedulingPlan',
+            component:()=>import('@/views/root/scheduling/schedulingPlan.vue')
+          },
+        ]
       },
       {
         path:'PatentInfo',

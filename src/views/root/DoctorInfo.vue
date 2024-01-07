@@ -20,6 +20,8 @@
       <a-table :columns="columns" :data-source="data" :pagination="false">
         <span slot="action" slot-scope="text, record">
           <a class="ant-dropdown-link" @click="editShow(record)"> 编辑 </a>
+           <a-divider type="vertical" />
+          <a class="ant-dropdown-link" @click="scheduling(record)"> 排班 </a>
         <a-divider type="vertical" />
         <a @click="deleteAccount(record)">删除</a>
     </span>
@@ -118,6 +120,28 @@
       </div>
     </a-drawer>
 
+
+    <!--排班-->
+    <a-modal
+        title="排班"
+        :visible="schedulingVisible"
+        @ok="schedulingOk"
+        @cancel="schedulingInfoCancel"
+        width="1200px"
+    >
+      <a-radio-group v-model="schedulingPage" @change="onPageChange">
+        <a-radio-button value="schedulingInfo">
+          排班信息
+        </a-radio-button>
+        <a-radio-button value="schedulingPlan">
+          计划排班
+        </a-radio-button>
+      </a-radio-group>
+      <a-divider/>
+        <router-view/>
+    </a-modal>
+
+
   </div>
 </template>
 
@@ -169,8 +193,10 @@ export default {
   name: "DoctorInfo",
   data(){
     return{
+      schedulingPage:'',
       editVisible:false,
       insertVisible:false,
+      schedulingVisible:false,
       data,
       columns,
       page: 1,
@@ -178,6 +204,9 @@ export default {
       total:'',
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
+      schedulingForm: {
+        doctorName:'',
+      },
       searchForm:{
         doctorId:'',
         doctorName:'',
@@ -205,6 +234,25 @@ export default {
     })
   },
   methods:{
+    onPageChange(e) {
+      this.$router.push({
+        name:e.target.value,
+      })
+      sessionStorage.setItem("doctorName", this.schedulingForm.doctorName)
+    },
+    scheduling(records) {
+      this.schedulingVisible = true;
+      this.schedulingForm.doctorName  = records.doctorName;
+      this.$router.push({
+        name:'schedulingInfo',
+      })
+    },
+    schedulingOk() {
+      this.schedulingVisible = false;
+    },
+    schedulingInfoCancel() {
+      this.schedulingVisible = false;
+    },
     init() {
       page({
         page:1,

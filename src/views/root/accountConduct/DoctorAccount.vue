@@ -65,7 +65,7 @@
       </div>
     </a-drawer>
 
-    <!--    修改对话抽屉-->
+    <!--    编辑对话抽屉-->
     <a-drawer
         title="新增管理员账户"
         placement="right"
@@ -208,7 +208,7 @@ export default {
     insertShow() {
       this.visible = true;
     },
-    insertRoot() {
+    insertDoctor() {
       if (this.form.password != this.form.confirmPassword) {
         this.$message.error({
           content:'两次密码输入不一致'
