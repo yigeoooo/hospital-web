@@ -74,11 +74,11 @@ export default {
           id:this.form.id,
           password:this.form.password
         }).then(res=>{
-          if (res == true) {
+          if (res === true) {
             this.$router.push({
               name:'RootMain',
             })
-            localStorage.setItem("id", this.form.id);
+            localStorage.setItem("rootId", this.form.id);
             return;
           }
           this.$message.error({
@@ -96,7 +96,7 @@ export default {
               this.$router.push({
                 name:'doctorMainPage',
               })
-              localStorage.setItem("id", this.form.id);
+              localStorage.setItem("doctorId", this.form.id);
               return;
             }
           this.$message.error({
@@ -113,7 +113,7 @@ export default {
             this.$router.push({
               name:'patientMainPage',
             })
-            localStorage.setItem("id", this.form.id);
+            localStorage.setItem("patientId", this.form.id);
             return;
           }
           this.$message.error({

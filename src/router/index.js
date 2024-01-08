@@ -111,6 +111,11 @@ const routes = [
         path: 'RegistrationInfo',
         name: 'RegistrationInfo',
         component: () => import('../views/patient/RegistrationInfo'),
+      },
+      {
+        path: 'RegisteredOrders',
+        name: 'RegisteredOrders',
+        component: () => import('../views/patient/RegisteredOrders'),
       }
     ],
   }

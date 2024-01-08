@@ -5,7 +5,7 @@ import axios from "axios";
 
 // Create an axios instance
 const request = axios.create({
-    // baseURL:'http://198.44.179.118:8080/',
+    // baseURL:'http://47.109.49.39:8090/',
     baseURL: 'http://localhost:8090/', // Use environment variable for flexibility
     timeout: 1000 * 30, // Set timeout for all requests
     withCredentials: true,

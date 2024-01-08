@@ -33,7 +33,7 @@
             <a-tag color="red">
               警告
             </a-tag>
-  </a-popover>
+          </a-popover>
     </span>
       </a-table>
 

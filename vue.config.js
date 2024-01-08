@@ -7,6 +7,7 @@ module.exports = defineConfig({
       overlay: false
     },
   },
+  publicPath: '/',
   transpileDependencies: true,
   configureWebpack: {
     resolve: {
