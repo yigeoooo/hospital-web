@@ -72,3 +72,12 @@ export function updateInfo(data) {
     })
 }
 
+//模糊查询药品种类
+export function getMedineList(data) {
+    return request({
+        url:`/saas/medicine/type`,
+        method:'GET',
+        params:data
+    })
+}
+

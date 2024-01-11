@@ -1,8 +1,10 @@
 <template>
   <div>
+    <br>
     <a-divider orientation="left">
-      挂号详情
+      排班计划
     </a-divider>
+
     <br>
     <a-card style="width: 1500px;margin-left: 100px">
       <a-date-picker  valueFormat="YYYY-MM-DD" v-model="searchForm.date" style="width: 200px;float: left;margin-left: 10px"/>
@@ -10,24 +12,11 @@
         查询
       </a-button><br><br>
 
-
       <a-table :columns="columns" :data-source="data" :pagination="false">
-        <span slot="action" slot-scope="text, record">
-           <a-popover title="暂未就诊" v-show="record.status === false">
-            <template slot="content">
-              <p>请按照预约时间入院就诊</p>
-            </template>
-            <a-tag color="orange">
-              未就诊
-            </a-tag>
-             <a-divider type="vertical" />
-             <a class="ant-dropdown-link" @click="CancelRegistration(record)"> 退号 </a>
-          </a-popover>
-          <a class="ant-dropdown-link" @click="info(record)" v-show="record.status === true"> 详情 </a>
 
+      </a-table>
 
-        </span>
-      </a-table><br>
+      <br>
 
       <a-pagination
           v-model="page"
@@ -36,16 +25,17 @@
           :total="total"
           @showSizeChange="sizeChange"
           @change="onChange"
-          style="margin-left: 50px"
+          style="margin-left: 100px"
       />
 
-
     </a-card>
+
   </div>
+
 </template>
 
 <script>
-import {page, reset} from "@/js/register";
+import {schedulingPage} from "@/js/Scheduling";
 
 const columns = [
   {
@@ -65,28 +55,31 @@ const columns = [
   },
   {
     title: '时间',
-    dataIndex: 'time',
     key: 'time',
+    dataIndex: 'time',
   },
   {
-    title: '操作',
-    key: 'action',
-    scopedSlots: { customRender: 'action' },
+    title: '可挂号数',
+    key: 'count',
+    dataIndex: 'count',
   },
 ];
 const data = [];
 export default {
-  name: "RegisteredOrders",
+  name: "schedulingPlan",
   data() {
     return {
       data,
       columns,
-      page:1,
-      size:10,
-      total:'',
+      page: 1,
+      size: 10,
+      total:500,
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
-      searchForm:{
+      searchForm: {
+        page:this.page,
+        size:this.size,
+        doctorId:localStorage.getItem("doctorId"),
         date:'',
       },
     }
@@ -96,11 +89,11 @@ export default {
   },
   methods: {
     init() {
-      page({
+      schedulingPage({
         page:this.page,
         size:this.size,
+        doctorId:localStorage.getItem("doctorId"),
         date:this.searchForm.date,
-        patientId:localStorage.getItem("patientId")
       }).then(res => {
         this.data = res.body.records;
         this.total = res.body.total;
@@ -117,29 +110,6 @@ export default {
     onChange(val) {
       this.page = val;
       this.init();
-    },
-    CancelRegistration(records) {
-      const resetForm = {
-        id:records.id,
-        date:records.date,
-        time:records.time,
-        doctorName:records.doctorName
-      };
-      reset(resetForm).then(res => {
-        if (res.code === 200 && res.body === true) {
-          this.$message.success({
-            content:'退号成功'
-          })
-          this.init();
-          return;
-        }
-         this.$message.error({
-           content:'退号失败'
-         })
-      })
-    },
-    info(records) {
-      console.log(records);
     },
   },
 }

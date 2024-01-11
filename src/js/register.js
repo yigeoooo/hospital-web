@@ -19,6 +19,15 @@ export function page(data) {
     })
 }
 
+//分页条件查询挂号信息
+export function pages(data) {
+    return request({
+        url:'/saas/registerOrder/pages',
+        method:'POST',
+        data:data
+    })
+}
+
 //退号
 export function reset(data) {
     return request({

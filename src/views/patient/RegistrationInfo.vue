@@ -51,6 +51,7 @@
             <p>日期：{{registerForm.date}}</p>
             <p>患者ID：{{registerForm.patientId}}</p>
             <p>患者姓名：{{registerForm.patientName}}</p>
+            <p>患者性别：{{registerForm.patientGender}}</p>
             <p>联系电话：{{registerForm.phoneNumber}}</p>
             <p>身份证号：{{registerForm.idCard}}</p>
           </a-card>
@@ -125,6 +126,7 @@ export default {
         doctorName:'',
         patientId:'',
         patientName:'',
+        patientGender:'',
         idCard:'',
         phoneNumber:'',
       },
@@ -167,6 +169,7 @@ export default {
         this.registerForm.patientId = res.body.patientId;
         this.registerForm.patientName = res.body.patientName;
         this.registerForm.phoneNumber = res.body.phoneNumber;
+        this.registerForm.patientGender = res.body.patientGender;
         this.registerForm.idCard = res.body.idCard;
       })
     },

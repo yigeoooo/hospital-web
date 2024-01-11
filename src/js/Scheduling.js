@@ -29,6 +29,16 @@ export function getPages(data) {
 }
 
 
+//分页查询排班信息
+export function schedulingPage(data) {
+    return request({
+        url:'/saas/scheduling/SchedulingPage',
+        method:'POST',
+        data:data
+    })
+}
+
+
 //逻辑删除排班信息
 export function remove(id) {
     return request({

@@ -91,6 +91,11 @@ const routes = [
         component: () => import('../views/doctor/DoctorMain'),
       },
       {
+        path: 'scheduling',
+        name: 'scheduling',
+        component: () => import('../views/doctor/schedulingPlan'),
+      },
+      {
         path: 'treatInfo',
         name: 'treatInfo',
         component: () => import('../views/doctor/TreatInfo'),
