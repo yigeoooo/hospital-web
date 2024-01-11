@@ -18,3 +18,12 @@ export function page(data) {
         data:data
     })
 }
+
+//退号
+export function reset(data) {
+    return request({
+        url:'/saas/registerOrder/reset',
+        method:'POST',
+        data:data
+    })
+}

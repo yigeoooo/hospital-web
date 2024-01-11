@@ -4,11 +4,11 @@
       <div id="form">
         <h1 style="margin-right: 30px">中医信息管理系统</h1>
         <a-form-model :model="form" :label-col="labelCol" :wrapper-col="wrapperCol">
-          <a-form-model-item label="ID">
+          <a-form-model-item label="用户名">
             <a-input v-model="form.id" />
           </a-form-model-item>
 
-          <a-form-model-item label="Password">
+          <a-form-model-item label="密码">
             <a-input v-model="form.password" type="password"/>
           </a-form-model-item>
 
@@ -26,10 +26,10 @@
 
           <a-form-model-item :wrapper-col="{ span: 14, offset: 4 }">
             <a-button type="primary" @click="login" size="large">
-              Login
+              登录
             </a-button>
             <a-button style="margin-left: 10px;" size="large">
-              sign up
+              注册
             </a-button>
           </a-form-model-item>
         </a-form-model>

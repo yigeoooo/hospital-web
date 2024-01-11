@@ -15,7 +15,7 @@
         <span slot="action" slot-scope="text, record">
            <a-popover title="暂未就诊" v-show="record.status === false">
             <template slot="content">
-              <p>请按照规定时间入院就诊</p>
+              <p>请按照预约时间入院就诊</p>
             </template>
             <a-tag color="orange">
               未就诊
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import {page} from "@/js/register";
+import {page, reset} from "@/js/register";
 
 const columns = [
   {
@@ -118,7 +118,23 @@ export default {
       this.init();
     },
     CancelRegistration(records) {
-      console.log(records)
+      const resetForm = {
+        id:records.id,
+        date:records.date,
+        doctorName:records.doctorName
+      };
+      reset(resetForm).then(res => {
+        if (res.code === 200 && res.body === true) {
+          this.$message.success({
+            content:'退号成功'
+          })
+          this.init();
+          return;
+        }
+         this.$message.error({
+           content:'退号失败'
+         })
+      })
     },
     info(records) {
       console.log(records);
