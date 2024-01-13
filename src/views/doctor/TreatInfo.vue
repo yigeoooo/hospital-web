@@ -81,7 +81,7 @@
               </div>
 
               <a-card title="病例信息" style="width: 1200px;margin-left: 40px">
-                <v-md-editor v-model="writeForm.text" height="400px"></v-md-editor>
+                <v-md-editor v-model="writeForm.advice" height="400px"></v-md-editor>
               </a-card>
               <br><br>
             </a-form-model>
@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import {pages} from "@/js/register";
+import {pages, writeAdvice} from "@/js/register";
 import {getMedineList} from "@/js/medicine";
 
 export default {
@@ -133,7 +133,7 @@ export default {
         size:this.size,
       },
       writeForm:{
-        test:'',
+        advice:'',
         id:'',
         patientId:'',
         patientName:'',
@@ -144,7 +144,6 @@ export default {
       medicineForm :{
         item:[
           {
-            medicineId:'',
             medicineName:'',
             count:'',
           }
@@ -195,7 +194,26 @@ export default {
       })
     },
     handleOk() {
-      this.visible = false;
+      const form = {
+        id:this.writeForm.id,
+        advice:this.writeForm.advice,
+        medicineForm:this.medicineForm.item
+      }
+      writeAdvice(form).then(res => {
+        if (res.body === true && res.code === 200) {
+          this.$message.success({
+            content:'新增成功',
+          })
+          this.init();
+          this.visible = false;
+          return;
+        }
+        this.$message.error({
+          content:'新增失败',
+        })
+        this.visible = false;
+        return;
+      })
     },
     handleCancel() {
       this.visible = false;

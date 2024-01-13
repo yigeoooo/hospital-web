@@ -38,14 +38,62 @@
           @change="onChange"
           style="margin-left: 50px"
       />
-
-
     </a-card>
+
+    <!--挂号对话框-->
+    <a-modal
+        title="详情"
+        :visible="visible"
+        @ok="handleOk"
+        @cancel="handleCancel"
+        :width="1500"
+    >
+      <a-form-model :model="infoForm" :label-col="labelCol" :wrapper-col="wrapperCol">
+        <a-descriptions title="就诊详情" bordered>
+          <a-descriptions-item label="id">
+            {{infoForm.id}}
+          </a-descriptions-item>
+          <a-descriptions-item label="患者ID">
+            {{infoForm.patientId}}
+          </a-descriptions-item>
+          <a-descriptions-item label="患者姓名">
+            {{infoForm.patientName}}
+          </a-descriptions-item>
+          <a-descriptions-item label="主治医生">
+            {{infoForm.doctorName}}
+          </a-descriptions-item>
+          <a-descriptions-item label="就诊日期">
+            {{infoForm.date}}
+          </a-descriptions-item>
+          <a-descriptions-item label="患者性别">
+            {{infoForm.patientGender}}
+          </a-descriptions-item>
+          <a-descriptions-item label="身份证" :span="2">
+            {{infoForm.idCard}}
+          </a-descriptions-item>
+          <a-descriptions-item label="联系电话" :span="2">
+            {{infoForm.phoneNumber}}
+          </a-descriptions-item>
+          <a-descriptions-item label="药方" :span="3">
+            <a-tag color="green" v-for="(item,index) in infoForm.list" :key="index">
+              {{item.medicineName}}：{{item.count}}
+            </a-tag>
+          </a-descriptions-item>
+          <a-descriptions-item label="医嘱" :span="3">
+            {{infoForm.advice}}
+          </a-descriptions-item>
+        </a-descriptions>
+        <br><br>
+      </a-form-model>
+    </a-modal>
+
+
+
   </div>
 </template>
 
 <script>
-import {page, reset} from "@/js/register";
+import { getInfo, page, reset} from "@/js/register";
 
 const columns = [
   {
@@ -81,6 +129,7 @@ export default {
     return {
       data,
       columns,
+      visible:false,
       page:1,
       size:10,
       total:'',
@@ -88,6 +137,18 @@ export default {
       wrapperCol: { span: 14 },
       searchForm:{
         date:'',
+      },
+      infoForm:{
+        advice:'',
+        date:'',
+        doctorName:'',
+        id:'',
+        idCard:'',
+        patientGender:'',
+        patientId:'',
+        patientName:'',
+        phoneNumber:'',
+        list:[],
       },
     }
   },
@@ -139,7 +200,25 @@ export default {
       })
     },
     info(records) {
-      console.log(records);
+      this.visible = true;
+      getInfo(records.id).then(res => {
+        this.infoForm.id = res.body.id;
+        this.infoForm.patientId = res.body.patientId;
+        this.infoForm.patientName = res.body.patientName;
+        this.infoForm.date = res.body.date;
+        this.infoForm.idCard = res.body.idCard;
+        this.infoForm.phoneNumber = res.body.phoneNumber;
+        this.infoForm.advice = res.body.advice;
+        this.infoForm.doctorName = res.body.doctorName;
+        this.infoForm.patientGender = res.body.patientGender;
+        this.infoForm.list = res.body.list;
+      })
+    },
+    handleOk() {
+      this.visible = false;
+    },
+    handleCancel() {
+      this.visible = false;
     },
   },
 }

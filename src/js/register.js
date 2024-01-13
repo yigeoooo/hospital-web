@@ -36,3 +36,20 @@ export function reset(data) {
         data:data
     })
 }
+
+//新增病例
+export function writeAdvice(data) {
+    return request({
+        url:'/saas/advice/insert',
+        method:'POST',
+        data:data
+    })
+}
+
+//病例详情
+export function getInfo(id) {
+    return request({
+        url:`/saas/registerOrder/info/${id}`,
+        method:'GET',
+    })
+}
