@@ -52,6 +52,7 @@
             <p>患者ID：{{registerForm.patientId}}</p>
             <p>患者姓名：{{registerForm.patientName}}</p>
             <p>患者性别：{{registerForm.patientGender}}</p>
+            <p>患者年龄：{{registerForm.patientAge}}</p>
             <p>联系电话：{{registerForm.phoneNumber}}</p>
             <p>身份证号：{{registerForm.idCard}}</p>
           </a-card>
@@ -129,6 +130,7 @@ export default {
         patientGender:'',
         idCard:'',
         phoneNumber:'',
+        patientAge:'',
       },
     }
   },
@@ -171,6 +173,7 @@ export default {
         this.registerForm.phoneNumber = res.body.phoneNumber;
         this.registerForm.patientGender = res.body.patientGender;
         this.registerForm.idCard = res.body.idCard;
+        this.registerForm.patientAge = res.body.patientAge;
       })
     },
     handleOk() {

@@ -54,6 +54,9 @@
         <a-form-model-item label="患者姓名">
           <a-input v-model="insertForm.patientName"/>
         </a-form-model-item>
+        <a-form-model-item label="患者年齡">
+          <a-input v-model="insertForm.patientAge"/>
+        </a-form-model-item>
         <a-form-model-item label="患者性别">
           <a-radio-group v-model="insertForm.patientGender">
             <a-radio value="男">
@@ -100,6 +103,9 @@
         </a-form-model-item>
         <a-form-model-item label="患者姓名">
           <a-input v-model="editForm.patientName"/>
+        </a-form-model-item>
+        <a-form-model-item label="患者年龄">
+          <a-input v-model="editForm.patientAge"/>
         </a-form-model-item>
         <a-form-model-item label="身份证号">
           <a-input v-model="editForm.idCard"/>
@@ -148,6 +154,11 @@ const columns = [
     dataIndex: 'patientGender',
   },
   {
+    title: '年齡',
+    key: 'patientAge',
+    dataIndex: 'patientAge',
+  },
+  {
     title: '身份证号',
     key: 'idCard',
     dataIndex: 'idCard',
@@ -188,6 +199,7 @@ export default {
         patientGender:'',
         idCard:'',
         phoneNumber:'',
+        patientAge:''
       },
       editForm:{
         id:'',
@@ -195,6 +207,7 @@ export default {
         patientName:'',
         idCard:'',
         phoneNumber:'',
+        patientAge:''
       },
     }
   },
@@ -246,6 +259,7 @@ export default {
       this.editForm.patientName = records.patientName;
       this.editForm.idCard = records.idCard;
       this.editForm.phoneNumber = records.phoneNumber;
+      this.editForm.patientAge = records.patientAge;
     },
     editpatient(){
       edit(this.editForm).then(res=>{

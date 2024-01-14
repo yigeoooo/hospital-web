@@ -68,10 +68,13 @@
           <a-descriptions-item label="患者性别">
             {{infoForm.patientGender}}
           </a-descriptions-item>
-          <a-descriptions-item label="身份证" :span="2">
+          <a-descriptions-item label="患者年龄" :span="1">
+            {{infoForm.patientAge}}
+          </a-descriptions-item>
+          <a-descriptions-item label="身份证" :span="1">
             {{infoForm.idCard}}
           </a-descriptions-item>
-          <a-descriptions-item label="联系电话" :span="2">
+          <a-descriptions-item label="联系电话" :span="1">
             {{infoForm.phoneNumber}}
           </a-descriptions-item>
           <a-descriptions-item label="药方" :span="3">
@@ -145,6 +148,7 @@ export default {
         id:'',
         idCard:'',
         patientGender:'',
+        patientAge:'',
         patientId:'',
         patientName:'',
         phoneNumber:'',
@@ -211,6 +215,7 @@ export default {
         this.infoForm.advice = res.body.advice;
         this.infoForm.doctorName = res.body.doctorName;
         this.infoForm.patientGender = res.body.patientGender;
+        this.infoForm.patientAge = res.body.patientAge;
         this.infoForm.list = res.body.list;
       })
     },

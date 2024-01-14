@@ -52,3 +52,12 @@ export function count() {
         method:'GET',
     })
 }
+
+//注册患者账号
+export function register(data) {
+    return request({
+        url:'/saas/patient/register',
+        method:'POST',
+        data:data,
+    })
+}
