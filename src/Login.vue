@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="bck">
     <div id="login">
       <div id="form">
         <h1 style="margin-right: 30px">中医信息管理系统</h1>
@@ -75,12 +75,7 @@
         </a-form-model-item>
       </a-form-model>
       <a-divider/>
-
     </a-modal>
-
-
-
-
   </div>
 </template>
 
@@ -201,8 +196,12 @@ export default {
 </script>
 
 <style scoped>
+#bck{
+  background-image: url("img/background.png");
+  height: 920px;
+}
 #login{
-  border: #eaaa59 2px solid;
+  border: black 2px solid;
   height: 400px;
   width: 600px;
   position: absolute;
