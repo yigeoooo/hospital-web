@@ -83,7 +83,7 @@ const routes = [
   {
     path: '/doctorMain',
     name: 'doctorMain',
-    component: () => import('../DoctorPage'),
+    component: () => import('../views/doctor/DoctorPage.vue'),
     children: [
       {
         path: 'doctorMainPage',
@@ -105,7 +105,7 @@ const routes = [
   {
     path: '/patientMain',
     name: 'patientMain',
-    component: () => import('../PatientPage'),
+    component: () => import('../views/patient/PatientPage.vue'),
     children: [
       {
         path: 'patientMainPage',

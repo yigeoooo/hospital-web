@@ -145,7 +145,7 @@ export default {
         }).then(res=>{
           if (res === true) {
             this.$router.push({
-              name:'DoctorInfo',
+              name:'RootMain',
             })
             localStorage.setItem("rootId", this.form.id);
             return;
@@ -163,7 +163,7 @@ export default {
         }).then(res=>{
             if (res.code === 200 && res.body === true) {
               this.$router.push({
-                name:'scheduling',
+                name:'doctorMainPage',
               })
               localStorage.setItem("doctorId", this.form.id);
               return;
@@ -180,7 +180,7 @@ export default {
         }).then(res=>{
           if (res.code === 200 && res.body === true) {
             this.$router.push({
-              name:'RegistrationInfo',
+              name:'patientMainPage',
             })
             localStorage.setItem("patientId", this.form.id);
             return;

@@ -2,7 +2,7 @@
   <div>
     <div>
       <a-menu v-model="current" mode="horizontal" @click="change">
-<!--        <a-menu-item key="RootMain"> <a-icon type="mail" />首页</a-menu-item>-->
+        <a-menu-item key="RootMain"> <a-icon type="mail" />首页</a-menu-item>
         <a-menu-item key="DoctorInfo"> <a-icon type="appstore" />医生信息</a-menu-item>
         <a-menu-item key="PatentInfo"> <a-icon type="appstore" />患者信息</a-menu-item>
         <a-menu-item key="MedicalInfo"> <a-icon type="appstore" />药房信息</a-menu-item>
