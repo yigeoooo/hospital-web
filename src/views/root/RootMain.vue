@@ -13,27 +13,37 @@
         <a-icon type="right-circle" />
       </div>
       <div class="imgDiv">
-        <img src="../../img/main/1.jpg" style="height: 600px;width: 100%">
+        <img src="../../img/main/主页1.jpg" style="height: 600px;width: 100%">
       </div>
       <div class="imgDiv">
-        <img src="../../img/main/p.jpg" style="height: 600px;width: 100%">
+        <img src="../../img/main/主页2.jpg" style="height: 600px;width: 100%">
+      </div>
+      <div class="imgDiv">
+        <img src="../../img/main/主页3.jpg" style="height: 600px;width: 100%">
+      </div>
+      <div class="imgDiv">
+        <img src="../../img/main/主页4.jpg" style="height: 600px;width: 100%">
       </div>
     </a-carousel>
     <a-divider />
     <a-page-header
         title="医院简介"
     />
-    <div style="float: left;width: 500px;height: 500px">
-      <img src="../../img/introduce/11.jpg" style="width: 500px;height: 500px"/>
+    <div style="float: left;width: 500px;height: 500px;">
+      <img src="../../img/introduce/医院环境1.jpg" style="width: 500px;height: 500px"/>
     </div>
-    <div style="float: left;border: 1px black solid;width: 1000px;height: 500px;margin-left: 100px">
-      <p>
-        1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-        11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-        111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+    <div style="float: left;border: 1px black solid;width: 1000px;height: 500px;margin-left: 100px;border-radius: 25px;box-shadow: 5px 5px 5px">
+      <br/><br/><br/><br/>
+      <p style="text-align: left;font-size: 20px">
+          &nbsp; &nbsp; &nbsp; &nbsp;中医指以中国汉族劳动人民创造的传统医学为主的医学，是研究人体生理、病理以及疾病的诊断和防治等的一门学科。中医诞生于原始社会，春秋战国时期中医理论已基本形成，之后历代均有总结发展。中医理论对汉字文化圈国家影响深远。
       </p>
-    </div>
-    <a-divider />
+      <p style="text-align: left;font-size: 20px">
+        &nbsp; &nbsp; &nbsp; &nbsp;中医诊所是指在中医药理论指导下，运用中药和针灸、拔罐、推拿等非药物疗法开展诊疗服务，以及中药调剂、汤剂煎煮等中药药事服务的诊所，中医药治疗率100%。中医诊所是指以提供中医药门诊诊断和治疗为主的诊所，中医药治疗率不低于85% 。
+      </p>
+      <p style="text-align: left;font-size: 20px">
+        &nbsp; &nbsp; &nbsp; &nbsp;中医诊所成立于2024年，科室设置齐全，中医特色突出、教学实力强,集医疗、教学、预防、保健、康复于一体的现代化综合性中医医院。医院占地300平方米，建筑面积450平方米，固定资产总值100万元，在职职工34人，开放病床20张。医院在发展上始终坚持中医药的特色和优势，并在传承的基础，上进行不断的探索和创新。
+      </p>
+    </div><br><br><br><br>
     <a-page-header
         title="中药简介"
     />
@@ -117,17 +127,19 @@
     <a-page-header
         title="医院地址"
     />
-    <div style="float: left;width: 400px;height: 300px;border: 1px solid black">
-      <span>地图</span>
+    <div style="float: left;width: 300px;height: 300px;font-size: 20px">
+      <div style="width: 300px;height: 300px">
+        <img src="../../img/foot/img.png" style="height: 300px;width: 300px">
+      </div>
     </div>
-    <div style="float: left;width: 400px;height: 300px;border: 1px solid black;margin-left: 100px">
+    <div style="float: left;width: 300px;height: 300px;border: 1px solid black;margin-left: 100px;font-size: 20px">
       <span>二维码</span>
     </div>
-    <div style="float: left;width: 400px;height: 300px;border: 1px solid black;margin-left: 20px">
+    <div style="float: left;width: 300px;height: 300px;margin-left: 100px;font-size: 20px">
       <div style="float: left;text-align: left">
-        <span>地址</span><br>
-        <span>电话</span><br>
-        <span>院长信箱</span><br>
+        <span>地址:xxx xxx xxx</span><br><br>
+        <span>电话:18052365412</span><br><br>
+        <span>院长信箱:18052365412@qq.com</span><br><br>
       </div>
     </div>
   </div>
