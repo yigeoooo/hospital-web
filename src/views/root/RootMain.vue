@@ -132,8 +132,10 @@
         <img src="../../img/foot/img.png" style="height: 300px;width: 300px">
       </div>
     </div>
-    <div style="float: left;width: 300px;height: 300px;border: 1px solid black;margin-left: 100px;font-size: 20px">
-      <span>二维码</span>
+    <div style="float: left;width: 305px;height: 300px;border: 1px solid black;margin-left: 100px;font-size: 20px">
+      <div style="width: 300px;height: 300px">
+        <img src="../../img/code.jpg" style="height: 300px;width: 300px">
+      </div>
     </div>
     <div style="float: left;width: 300px;height: 300px;margin-left: 100px;font-size: 20px">
       <div style="float: left;text-align: left">
