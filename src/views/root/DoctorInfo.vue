@@ -20,11 +20,11 @@
       <a-table :columns="columns" :data-source="data" :pagination="false">
         <span slot="action" slot-scope="text, record">
           <a class="ant-dropdown-link" @click="editShow(record)"> 编辑 </a>
-           <a-divider type="vertical" />
-          <a class="ant-dropdown-link" @click="scheduling(record)"> 排班 </a>
-        <a-divider type="vertical" />
-        <a @click="deleteAccount(record)">删除</a>
-    </span>
+          <a-divider type="vertical" />
+          <a class="ant-dropdown-link" v-if="checkIsAdmin()" @click="scheduling(record)"> 排班 </a>
+          <a-divider type="vertical" />
+          <a @click="deleteAccount(record)">删除</a>
+        </span>
       </a-table>
 
       <br>
@@ -231,9 +231,14 @@ export default {
     this.init();
     count().then(res=>{
       this.total = res.body
-    })
+    });
+    this.test()
   },
   methods:{
+    checkIsAdmin() {
+      const status = localStorage.getItem("admin");
+      return status === '1';
+    },
     onPageChange(e) {
       this.$router.push({
         name:e.target.value,

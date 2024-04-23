@@ -14,7 +14,7 @@
 
           <a-radio-group v-model="job" style="margin-right: 45px">
             <a-radio-button value="1">
-              管理员
+              管理员/主管医生
             </a-radio-button>
             <a-radio-button value="2">
               医生
@@ -143,11 +143,12 @@ export default {
           id:this.form.id,
           password:this.form.password
         }).then(res=>{
-          if (res === true) {
+          if (res.code === 200 && res.body != null) {
             this.$router.push({
               name:'RootMain',
             })
             localStorage.setItem("rootId", this.form.id);
+            localStorage.setItem("admin", res.body.isAdmin)
             return;
           }
           this.$message.error({

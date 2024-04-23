@@ -127,7 +127,7 @@
     <a-page-header
         title="医院地址"
     />
-    <div style="float: left;width: 300px;height: 300px;font-size: 20px">
+    <div style="float: left;width: 300px;height: 300px;font-size: 20px;margin-left: 300px">
       <div style="width: 300px;height: 300px">
         <img src="../../img/foot/img.png" style="height: 300px;width: 300px">
       </div>
